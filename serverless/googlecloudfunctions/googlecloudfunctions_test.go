@@ -3,68 +3,68 @@ package googlecloudfunctions
 import "testing"
 import "fmt"
 
-func TestCallfunction(t *testing.T) {
+func TestCallFunction(t *testing.T) {
 
 	var googlecloudfunctions Googlecloudfunctions
 
-	callfunction := map[string]string{
+	CallFunction := map[string]string{
 		"name": "projects/adept-comfort-202709/locations/us-central1/functions/function-1",
 	}
 
-	_, err := googlecloudfunctions.Callfunction(callfunction)
+	_, err := googlecloudfunctions.CallFunction(CallFunction)
 
 	if err != nil {
 		t.Errorf("Test Fail")
 	}
 }
 
-func TestDeletefunction(t *testing.T) {
+func TestDeleteFunction(t *testing.T) {
 
 	var googlecloudfunctions Googlecloudfunctions
 
-	deletefunction := map[string]string{
+	DeleteFunction := map[string]string{
 		"name": "projects/adept-comfort-202709/locations/us-central1/functions/function-1",
 	}
 
-	_, err := googlecloudfunctions.Deletefunction(deletefunction)
+	_, err := googlecloudfunctions.DeleteFunction(DeleteFunction)
 
 	if err != nil {
 		t.Errorf("Test Fail")
 	}
 }
 
-func TestGetfunction(t *testing.T) {
+func TestGetFunction(t *testing.T) {
 
 	var googlecloudfunctions Googlecloudfunctions
 
-	getfunction := map[string]string{
+	GetFunction := map[string]string{
 		"name": "projects/adept-comfort-202709/locations/us-central1/functions/function-1",
 	}
 
-	_, err := googlecloudfunctions.Getfunction(getfunction)
+	_, err := googlecloudfunctions.GetFunction(GetFunction)
 
 	if err != nil {
 		t.Errorf("Test Fail")
 	}
 }
 
-func TestListfunction(t *testing.T) {
+func TestListFunction(t *testing.T) {
 
 	var googlecloudfunctions Googlecloudfunctions
 
-	listfunction := map[string]string{
+	ListFunction := map[string]string{
 		"name":     "projects/adept-comfort-202709/locations/us-central1",
 		"pageSize": "1",
 	}
 
-	_, err := googlecloudfunctions.Listfunction(listfunction)
+	_, err := googlecloudfunctions.ListFunction(ListFunction)
 
 	if err != nil {
 		t.Errorf("Test Fail")
 	}
 }
 
-func TestCreatefunction(t *testing.T) {
+func TestCreateFunction(t *testing.T) {
 
 	var googlecloudfunctions Googlecloudfunctions
 
@@ -74,7 +74,7 @@ func TestCreatefunction(t *testing.T) {
 	labels := make(map[string]string)
 	labels["deployment-tool"] = "console-cloud"
 
-	createfunction := map[string]interface{}{
+	CreateFunction := map[string]interface{}{
 		"Location":            "projects/adept-comfort-202709/locations/us-central1",
 		"Name":                "projects/adept-comfort-202709/locations/us-central1/functions/function-2",
 		"Status":              "ACTIVE",
@@ -90,7 +90,7 @@ func TestCreatefunction(t *testing.T) {
 		"Labels":              labels,
 	}
 
-	_, err := googlecloudfunctions.Createfunction(createfunction)
+	_, err := googlecloudfunctions.CreateFunction(CreateFunction)
 
 	if err != nil {
 		t.Errorf("Test Fail")

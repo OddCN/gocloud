@@ -34,14 +34,14 @@ googlecloud, _ := gocloud.CloudProvider(gocloud.Googleprovider)
 
 	initialSplits := make([]map[string]interface{},0)
 
-	createtables := map[string]interface{}{
+	CreateTables := map[string]interface{}{
 		"parent": "projects/adept-comfort-202709/instances/helloo",
 		"tableId" :"tableId",
 		"table"  : table,
 		"initialSplits" : initialSplits,
 	}
 
-	resp, err := googlecloud.Createtables(createtables)
+	resp, err := googlecloud.CreateTables(CreateTables)
 
 	response := resp.(map[string]interface{})
 
@@ -53,11 +53,11 @@ googlecloud, _ := gocloud.CloudProvider(gocloud.Googleprovider)
 ### Describe tables
 
 ```js
-	describetables := map[string]string{
+	DescribeTables := map[string]string{
 		"name": "projects/adept-comfort-202709/instances/helloo/tables/bokkkya",
 	}
 
-	resp, err := googlecloud.Describetables(describetables)
+	resp, err := googlecloud.DescribeTables(DescribeTables)
 
 	response := resp.(map[string]interface{})
 
@@ -69,11 +69,11 @@ googlecloud, _ := gocloud.CloudProvider(gocloud.Googleprovider)
 
 ```js
 
-deletetables := map[string]string{
+DeleteTables := map[string]string{
 		"name": "projects/adept-comfort-202709/instances/helloo/tables/bokkkya",
 	}
 
-	resp, err := googlecloud.Deletetables(deletetables)
+	resp, err := googlecloud.DeleteTables(DeleteTables)
 
  response := resp.(map[string]interface{})
  fmt.Println(response["body"])
@@ -82,13 +82,13 @@ deletetables := map[string]string{
 ### List tables
 
 ```js
-listtables := map[string]string{
+ListTables := map[string]string{
 		"parent":    "projects/adept-comfort-202709/instances/helloo",
 		"view":      "NAME_ONLY",
 		"pageToken": "",
 	}
 
-	resp, err := googlecloud.Listtables(listtables)
+	resp, err := googlecloud.ListTables(ListTables)
 
  response := resp.(map[string]interface{})
  fmt.Println(response["body"])

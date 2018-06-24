@@ -77,7 +77,7 @@ localSecondaryIndexes :=[]map[string]interface{}{
 
 
 
-createtables := map[string]interface{}{
+CreateTables := map[string]interface{}{
   "Region":    "us-east-1",
   "TableName" : "Thread",
   "KeySchema" : keySchema,
@@ -86,7 +86,7 @@ createtables := map[string]interface{}{
   "ProvisionedThroughput" : provisionedThroughput,
 }
 
-resp, err := amazoncloud.Createtables(createtables)
+resp, err := amazoncloud.CreateTables(CreateTables)
 
  response := resp.(map[string]interface{})
  fmt.Println(response["body"])
@@ -95,12 +95,12 @@ resp, err := amazoncloud.Createtables(createtables)
 ### Delete tables
 
 ```js
-deletetables := map[string]interface{}{
+DeleteTables := map[string]interface{}{
   "Region":    "us-east-2",
   "TableName": "hello",
 }
 
-  resp, err := amazoncloud.Deletetables(deletetables)
+  resp, err := amazoncloud.DeleteTables(DeleteTables)
 
   response := resp.(map[string]interface{})
   fmt.Println(response["body"])
@@ -109,12 +109,12 @@ deletetables := map[string]interface{}{
 ### List tables
 
 ```js
-listtables := map[string]interface{}{
+ListTables := map[string]interface{}{
   "Region":    "us-east-2",
   "TableName": "hello",
 }
 
-  resp, err := amazoncloud.Listtables(listtables)
+  resp, err := amazoncloud.ListTables(ListTables)
 
   response := resp.(map[string]interface{})
   fmt.Println(response["body"])
@@ -123,12 +123,12 @@ listtables := map[string]interface{}{
 ### describe tables
 
 ```js
-  describetables := map[string]interface{}{
+  DescribeTables := map[string]interface{}{
     "Region":    "us-east-2",
     "TableName": "hello",
   }
 
-  resp, err := amazoncloud.Describetables(describetables)
+  resp, err := amazoncloud.DescribeTables(DescribeTables)
 
   response := resp.(map[string]interface{})
   fmt.Println(response["body"])

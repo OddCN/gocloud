@@ -6,15 +6,15 @@ import (
 	"strconv"
 )
 
-// ListResourcednsRecordSets list resource DNS record sets accept map[string]interface{}
-func (alidns *Alidns) ListResourcednsRecordSets(request interface{}) (resp interface{}, err error) {
+// ListResourceDnsRecordSets list resource DNS record sets accept map[string]interface{}
+func (alidns *Alidns) ListResourceDnsRecordSets(request interface{}) (resp interface{}, err error) {
 	fmt.Println("\nThis API is not provided by Alibaba cloud")
 	return resp, err
 }
 
-// Listdns list DNS record accept map[string]interface{}
-func (alidns *Alidns) Listdns(request interface{}) (resp interface{}, err error) {
-	var options ListDNS
+// ListDns list DNS record accept map[string]interface{}
+func (alidns *Alidns) ListDns(request interface{}) (resp interface{}, err error) {
+	var options ListDns
 
 	param := make(map[string]interface{})
 
@@ -55,9 +55,9 @@ func (alidns *Alidns) Listdns(request interface{}) (resp interface{}, err error)
 	return resp, err
 }
 
-// Deletedns delete DNS record accept map[string]interface{}
-func (alidns *Alidns) Deletedns(request interface{}) (resp interface{}, err error) {
-	var options DeleteDNS
+// DeleteDns delete DNS record accept map[string]interface{}
+func (alidns *Alidns) DeleteDns(request interface{}) (resp interface{}, err error) {
+	var options DeleteDns
 
 	param := make(map[string]interface{})
 
@@ -78,9 +78,9 @@ func (alidns *Alidns) Deletedns(request interface{}) (resp interface{}, err erro
 	return resp, err
 }
 
-// Createdns add DNS record accept map[string]interface{}
-func (alidns *Alidns) Createdns(request interface{}) (resp interface{}, err error) {
-	var options CreateDNS
+// CreateDns add DNS record accept map[string]interface{}
+func (alidns *Alidns) CreateDns(request interface{}) (resp interface{}, err error) {
+	var options CreateDns
 
 	param := make(map[string]interface{})
 

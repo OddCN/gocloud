@@ -9,37 +9,37 @@ func init() {
 	aliauth.LoadConfig()
 }
 
-func TestCreatedns(t *testing.T) {
+func TestCreateDns(t *testing.T) {
 	var aliDNS Alidns
-	createDNS := map[string]interface{}{
+	CreateDns := map[string]interface{}{
 		"DomainName": "oddcn.cn",
 		"RR":         "gocloud.test",
 		"Type":       "A",
 		"Value":      "202.106.0.20",
 		"TTL":        600,
 	}
-	_, err := aliDNS.Createdns(createDNS)
+	_, err := aliDNS.CreateDns(CreateDns)
 	if err != nil {
-		t.Errorf("Createdns Test Fail: %s", err)
+		t.Errorf("CreateDns Test Fail: %s", err)
 		return
 	}
 	t.Logf("Ali DNS is created successfully.")
 }
 
-func TestDeletedns(t *testing.T) {
+func TestDeleteDns(t *testing.T) {
 	var aliDNS Alidns
-	deleteDNS := map[string]interface{}{
+	DeleteDns := map[string]interface{}{
 		"RecordId": "9999985",
 	}
-	_, err := aliDNS.Deletedns(deleteDNS)
+	_, err := aliDNS.DeleteDns(DeleteDns)
 	if err != nil {
-		t.Errorf("Deletedns Test Fail: %s", err)
+		t.Errorf("DeleteDns Test Fail: %s", err)
 		return
 	}
 	t.Logf("Ali DNS is deleted successfully.")
 }
 
-func TestListdns(t *testing.T) {
+func TestListDns(t *testing.T) {
 	var aliDNS Alidns
 	listDomain := map[string]interface{}{
 		"PageNumber": 1,
@@ -47,16 +47,16 @@ func TestListdns(t *testing.T) {
 		"KeyWord":    "com",
 		"GroupId":    "2223",
 	}
-	_, err := aliDNS.Listdns(listDomain)
+	_, err := aliDNS.ListDns(listDomain)
 	if err != nil {
-		t.Errorf("Listdns Test Fail: %s", err)
+		t.Errorf("ListDns Test Fail: %s", err)
 		return
 	}
 	t.Logf("Ali DNS is listed successfully.")
 }
-func TestListResourcednsRecordSets(t *testing.T) {
+func TestListResourceDnsRecordSets(t *testing.T) {
 	var aliDNS Alidns
-	listResourcednsRecordSets := map[string]interface{}{
+	ListResourceDnsRecordSets := map[string]interface{}{
 		"DomainName":   "oddcn.cn",
 		"PageNumber":   1,
 		"PageSize":     20,
@@ -64,9 +64,9 @@ func TestListResourcednsRecordSets(t *testing.T) {
 		"TypeKeyWord":  "MX",
 		"ValueKeyWord": "com",
 	}
-	_, err := aliDNS.ListResourcednsRecordSets(listResourcednsRecordSets)
+	_, err := aliDNS.ListResourceDnsRecordSets(ListResourceDnsRecordSets)
 	if err != nil {
-		t.Errorf("ListResourcednsRecordSets Test Fail: %s", err)
+		t.Errorf("ListResourceDnsRecordSets Test Fail: %s", err)
 		return
 	}
 	t.Logf("Ali resource DNS record sets is listed successfully.")

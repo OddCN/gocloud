@@ -36,7 +36,7 @@ httpsTrigger["URL"] = "https://us-central1-adept-comfort-202709.cloudfunctions.n
 labels := make(map[string]string)
 labels["deployment-tool"] = "console-cloud"
 
-createfunction := map[string]interface{}{
+CreateFunction := map[string]interface{}{
 	"Location":            "projects/adept-comfort-202709/locations/us-central1",
 	"Name":                "projects/adept-comfort-202709/locations/us-central1/functions/function-2",
 	"Status":              "ACTIVE",
@@ -52,7 +52,7 @@ createfunction := map[string]interface{}{
 	"Labels":              labels,
 }
 
-resp, err := googlecloud.Createfunction(createfunction)
+resp, err := googlecloud.CreateFunction(CreateFunction)
 
 response := resp.(map[string]interface{})
 
@@ -63,12 +63,12 @@ fmt.Println(response["body"])
 ### List function
 
 ```js
-listfunction := map[string]string{
+ListFunction := map[string]string{
 	"name":     "projects/adept-comfort-202709/locations/us-central1",
 	"pageSize": "1",
 }
 
-resp, err := googlecloud.Listfunction(listfunction)
+resp, err := googlecloud.ListFunction(ListFunction)
 
 response := resp.(map[string]interface{})
 
@@ -80,11 +80,11 @@ fmt.Println(response["body"])
 
 ```js
 
-deletefunction := map[string]string{
+DeleteFunction := map[string]string{
 	"name":"projects/adept-comfort-202709/locations/us-central1/functions/function-1",
 }
 
- resp, err := googlecloud.Deletefunction(deletefunction)
+ resp, err := googlecloud.DeleteFunction(DeleteFunction)
 
  response := resp.(map[string]interface{})
  fmt.Println(response["body"])
@@ -93,11 +93,11 @@ deletefunction := map[string]string{
 ### Call function
 
 ```js
-callfunction := map[string]string{
+CallFunction := map[string]string{
 	"name": "projects/adept-comfort-202709/locations/us-central1/functions/function-1",
 }
 
-resp, err := googlecloud.Callfunction(callfunction)
+resp, err := googlecloud.CallFunction(CallFunction)
 
  response := resp.(map[string]interface{})
  fmt.Println(response["body"])
@@ -108,11 +108,11 @@ resp, err := googlecloud.Callfunction(callfunction)
 ### Get function
 
 ```js
-getfunction := map[string]string{
+GetFunction := map[string]string{
 		"name": "projects/adept-comfort-202709/locations/us-central1/functions/function-1",
 	}
 
-resp, err := googlecloudfunctions.Getfunction(getfunction)
+resp, err := googlecloudfunctions.GetFunction(GetFunction)
 
  response := resp.(map[string]interface{})
  fmt.Println(response["body"])

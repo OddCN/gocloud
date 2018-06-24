@@ -1,7 +1,7 @@
 package dynamodb
 
 //List tables.
-func (dynamodb *Dynamodb) Listtables(request interface{}) (resp interface{}, err error) {
+func (dynamodb *Dynamodb) ListTables(request interface{}) (resp interface{}, err error) {
 
 	param := request.(map[string]interface{})
 
@@ -25,22 +25,22 @@ func (dynamodb *Dynamodb) Listtables(request interface{}) (resp interface{}, err
 
 	params := make(map[string]string)
 
-	preparelisttables(params, ExclusiveStartTableName, Limit, Region)
+	prepareListTables(params, ExclusiveStartTableName, Limit, Region)
 
-	listtablesjsonmap := map[string]interface{}{}
+	ListTablesjsonmap := map[string]interface{}{}
 
-	listtablesjsonmap["ExclusiveStartTableName"] = ExclusiveStartTableName
-	listtablesjsonmap["Limit"] = Limit
+	ListTablesjsonmap["ExclusiveStartTableName"] = ExclusiveStartTableName
+	ListTablesjsonmap["Limit"] = Limit
 
 	response := make(map[string]interface{})
 
-	err = dynamodb.PrepareSignatureV4query(params, listtablesjsonmap, response)
+	err = dynamodb.PrepareSignatureV4query(params, ListTablesjsonmap, response)
 	resp = response
 	return resp, err
 }
 
 //Delete tables.
-func (dynamodb *Dynamodb) Deletetables(request interface{}) (resp interface{}, err error) {
+func (dynamodb *Dynamodb) DeleteTables(request interface{}) (resp interface{}, err error) {
 	param := request.(map[string]interface{})
 
 	var TableName, Region string
@@ -59,20 +59,20 @@ func (dynamodb *Dynamodb) Deletetables(request interface{}) (resp interface{}, e
 
 	params := make(map[string]string)
 
-	preparedeletetables(params, TableName, Region)
+	prepareDeleteTables(params, TableName, Region)
 
-	deletetablesjsonmap := map[string]interface{}{
+	DeleteTablesjsonmap := map[string]interface{}{
 		"TableName": TableName,
 	}
 
 	response := make(map[string]interface{})
-	err = dynamodb.PrepareSignatureV4query(params, deletetablesjsonmap, response)
+	err = dynamodb.PrepareSignatureV4query(params, DeleteTablesjsonmap, response)
 	resp = response
 	return resp, err
 }
 
 //Create tables.
-func (dynamodb *Dynamodb) Createtables(request interface{}) (resp interface{}, err error) {
+func (dynamodb *Dynamodb) CreateTables(request interface{}) (resp interface{}, err error) {
 	param := request.(map[string]interface{})
 	var createtable Createtable
 	var Region string
@@ -270,7 +270,7 @@ func (dynamodb *Dynamodb) Createtables(request interface{}) (resp interface{}, e
 }
 
 //Describe tables.
-func (dynamodb *Dynamodb) Describetables(request interface{}) (resp interface{}, err error) {
+func (dynamodb *Dynamodb) DescribeTables(request interface{}) (resp interface{}, err error) {
 
 	param := request.(map[string]interface{})
 
@@ -290,14 +290,14 @@ func (dynamodb *Dynamodb) Describetables(request interface{}) (resp interface{},
 
 	params := make(map[string]string)
 
-	preparedescribetables(params, TableName, Region)
+	prepareDescribeTables(params, TableName, Region)
 
-	deletetablesjsonmap := map[string]interface{}{
+	DeleteTablesjsonmap := map[string]interface{}{
 		"TableName": TableName,
 	}
 
 	response := make(map[string]interface{})
-	err = dynamodb.PrepareSignatureV4query(params, deletetablesjsonmap, response)
+	err = dynamodb.PrepareSignatureV4query(params, DeleteTablesjsonmap, response)
 	resp = response
 	return resp, err
 }

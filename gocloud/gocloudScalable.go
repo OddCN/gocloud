@@ -119,6 +119,12 @@ Vultr API contains API which GoCloud implemented now
 type vultrProvider interface {
 	gocloudinterface.Compute
 	Compute() gocloudinterface.Compute
+
+	gocloudinterface.Storage
+	Storage() gocloudinterface.Storage
+
+	gocloudinterface.DNS
+	DNS() gocloudinterface.DNS
 }
 
 // VultrProvider return Vultr API to users

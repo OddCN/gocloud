@@ -28,12 +28,12 @@ amazoncloud, _ := gocloud.CloudProvider(gocloud.Amazonprovider)
 ### Create DNS
 
 ```js
-  createdns := map[string]interface{}{
+  CreateDns := map[string]interface{}{
 		"name":             "rootmonk.me",
 		"hostedZoneConfig": "hostedZoneConfig",
 	}
 
- resp, err := awsdns.Createdns(createdns)
+ resp, err := awsdns.CreateDns(CreateDns)
 
  response := resp.(map[string]interface{})
  fmt.Println(response["body"])
@@ -41,11 +41,11 @@ amazoncloud, _ := gocloud.CloudProvider(gocloud.Amazonprovider)
 
 ### Delete DNS
 ```js
- deletedns := map[string]string{
+ DeleteDns := map[string]string{
 		"ID": "ZOD7SUP0ZGGQQ",
 	}
 
- resp, err := awsdns.Deletedns(deletedns)
+ resp, err := awsdns.DeleteDns(DeleteDns)
 
  response := resp.(map[string]interface{})
  fmt.Println(response["body"])
@@ -54,12 +54,12 @@ amazoncloud, _ := gocloud.CloudProvider(gocloud.Amazonprovider)
 ### List DNS
 
 ```js
- listdns := map[string]interface{}{
+ ListDns := map[string]interface{}{
 		"marker":   "",
 		"maxItems": 2,
 	}
 
-  resp, err := awsdns.Listdns(listdns)
+  resp, err := awsdns.ListDns(ListDns)
 
  response := resp.(map[string]interface{})
  fmt.Println(response["body"])
@@ -69,11 +69,11 @@ amazoncloud, _ := gocloud.CloudProvider(gocloud.Amazonprovider)
 
 ```js
 
- listResourcednsRecordSets := map[string]interface{}{
+ ListResourceDnsRecordSets := map[string]interface{}{
 	"zone": "ZBNX5TIW033J2",
   }
 
- resp, err := awsdns.ListResourcednsRecordSets(listResourcednsRecordSets)
+ resp, err := awsdns.ListResourceDnsRecordSets(ListResourceDnsRecordSets)
 
  response := resp.(map[string]interface{})
  fmt.Println(response["body"])

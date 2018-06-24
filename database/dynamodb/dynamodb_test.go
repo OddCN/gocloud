@@ -7,55 +7,55 @@ func init() {
 	awsAuth.LoadConfig()
 }
 
-func TestDescribetables(t *testing.T) {
+func TestDescribeTables(t *testing.T) {
 
 	var dynamodb Dynamodb
 
-	describetables := map[string]interface{}{
+	DescribeTables := map[string]interface{}{
 		"Region":    "us-east-2",
 		"TableName": "hello",
 	}
 
-	_, err := bigtable.Describetables(describetables)
+	_, err := bigtable.DescribeTables(DescribeTables)
 
 	if err != nil {
 		t.Errorf("Test Fail")
 	}
 }
 
-func TestListtables(t *testing.T) {
+func TestListTables(t *testing.T) {
 
 	var dynamodb Dynamodb
 
-	listtables := map[string]interface{}{
+	ListTables := map[string]interface{}{
 		"Region":    "us-east-2",
 		"TableName": "hello",
 	}
 
-	_, err := bigtable.Listtables(listtables)
+	_, err := bigtable.ListTables(ListTables)
 
 	if err != nil {
 		t.Errorf("Test Fail")
 	}
 }
 
-func TestDeletetables(t *testing.T) {
+func TestDeleteTables(t *testing.T) {
 
 	var dynamodb Dynamodb
 
-	deletetables := map[string]interface{}{
+	DeleteTables := map[string]interface{}{
 		"Region":    "us-east-2",
 		"TableName": "hello",
 	}
 
-	_, err := dynamodb.Deletetables(deletetables)
+	_, err := dynamodb.DeleteTables(DeleteTables)
 
 	if err != nil {
 		t.Errorf("Test Fail")
 	}
 }
 
-func TestCreatetables(t *testing.T) {
+func TestCreateTables(t *testing.T) {
 
 	var dynamodb Dynamodb
 
@@ -103,7 +103,7 @@ func TestCreatetables(t *testing.T) {
 		},
 	}
 
-	createtables := map[string]interface{}{
+	CreateTables := map[string]interface{}{
 		"Region":                "us-east-1",
 		"TableName":             "Thread",
 		"KeySchema":             keySchema,
@@ -112,7 +112,7 @@ func TestCreatetables(t *testing.T) {
 		"ProvisionedThroughput": provisionedThroughput,
 	}
 
-	_, err := dynamodb.Createtables(createtables)
+	_, err := dynamodb.CreateTables(CreateTables)
 
 	if err != nil {
 		t.Errorf("Test Fail")

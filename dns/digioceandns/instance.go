@@ -12,8 +12,8 @@ import (
 // dnsBasePath is the endpoint URL for digitalocean API.
 const dnsBasePath = "https://api.digitalocean.com/v2/domains"
 
-// Createdns function creates a new DNS record.
-func (digioceandns *Digioceandns) Createdns(request interface{}) (resp interface{}, err error) {
+// CreateDns function creates a new DNS record.
+func (digioceandns *Digioceandns) CreateDns(request interface{}) (resp interface{}, err error) {
 
 	var dnsInstance Digioceandns                                     // Initialize LoadBalancer struct
 	var domainName string                                            // To store domain name
@@ -76,94 +76,94 @@ func (digioceandns *Digioceandns) Createdns(request interface{}) (resp interface
 
 	url := dnsBasePath + "/" + domainName + "/records"
 
-	createDNSReq, err := http.NewRequest("POST", url, bytes.NewBuffer(dnsInstanceJSONStringbyte))
+	CreateDnsReq, err := http.NewRequest("POST", url, bytes.NewBuffer(dnsInstanceJSONStringbyte))
 	if err != nil {
 		fmt.Println(err)
 	}
-	createDNSReq.Header.Set("Content-Type", "application/json")
-	createDNSReq.Header.Set("Authorization", "Bearer "+DigiOceanAccessToken)
+	CreateDnsReq.Header.Set("Content-Type", "application/json")
+	CreateDnsReq.Header.Set("Authorization", "Bearer "+DigiOceanAccessToken)
 
-	createDNSResp, err := http.DefaultClient.Do(createDNSReq)
+	CreateDnsResp, err := http.DefaultClient.Do(CreateDnsReq)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	defer createDNSResp.Body.Close()
+	defer CreateDnsResp.Body.Close()
 
-	responseBody, err := ioutil.ReadAll(createDNSResp.Body)
-	createDNSResponse := make(map[string]interface{})
-	createDNSResponse["status"] = createDNSResp.StatusCode
-	createDNSResponse["body"] = string(responseBody)
-	resp = createDNSResponse
+	responseBody, err := ioutil.ReadAll(CreateDnsResp.Body)
+	CreateDnsResponse := make(map[string]interface{})
+	CreateDnsResponse["status"] = CreateDnsResp.StatusCode
+	CreateDnsResponse["body"] = string(responseBody)
+	resp = CreateDnsResponse
 
 	return resp, err
 }
 
-// Deletedns function deletes a DNS record.
-func (digioceandns *Digioceandns) Deletedns(request interface{}) (resp interface{}, err error) {
+// DeleteDns function deletes a DNS record.
+func (digioceandns *Digioceandns) DeleteDns(request interface{}) (resp interface{}, err error) {
 
 	options := request.(map[string]string)
 
 	url := dnsBasePath + "/" + options["DomainName"] + "/records/" + options["RecordID"]
 	DigiOceanAccessToken := digioceanAuth.Token.DigiOceanAccessToken // Fetch the DigiOceanAccessToken
 
-	deleteDNSReq, err := http.NewRequest("DELETE", url, nil)
+	DeleteDnsReq, err := http.NewRequest("DELETE", url, nil)
 	if err != nil {
 		fmt.Println(err)
 	}
-	deleteDNSReq.Header.Set("Content-Type", "application/json")
-	deleteDNSReq.Header.Set("Authorization", "Bearer "+DigiOceanAccessToken)
+	DeleteDnsReq.Header.Set("Content-Type", "application/json")
+	DeleteDnsReq.Header.Set("Authorization", "Bearer "+DigiOceanAccessToken)
 
-	deleteDNSResp, err := http.DefaultClient.Do(deleteDNSReq)
+	DeleteDnsResp, err := http.DefaultClient.Do(DeleteDnsReq)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	defer deleteDNSResp.Body.Close()
+	defer DeleteDnsResp.Body.Close()
 
-	responseBody, err := ioutil.ReadAll(deleteDNSResp.Body)
-	deleteDNSResponse := make(map[string]interface{})
-	deleteDNSResponse["status"] = deleteDNSResp.StatusCode
-	deleteDNSResponse["body"] = string(responseBody)
-	resp = deleteDNSResponse
+	responseBody, err := ioutil.ReadAll(DeleteDnsResp.Body)
+	DeleteDnsResponse := make(map[string]interface{})
+	DeleteDnsResponse["status"] = DeleteDnsResp.StatusCode
+	DeleteDnsResponse["body"] = string(responseBody)
+	resp = DeleteDnsResponse
 
 	return resp, err
 }
 
-// Listdns function lists DNS records.
-func (digioceandns *Digioceandns) Listdns(request interface{}) (resp interface{}, err error) {
+// ListDns function lists DNS records.
+func (digioceandns *Digioceandns) ListDns(request interface{}) (resp interface{}, err error) {
 
 	options := request.(map[string]string)
 
 	url := dnsBasePath + "/" + options["DomainName"] + "/records"
 	DigiOceanAccessToken := digioceanAuth.Token.DigiOceanAccessToken // Fetch the DigiOceanAccessToken
 
-	listDNSReq, err := http.NewRequest("GET", url, nil)
+	ListDnsReq, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		fmt.Println(err)
 	}
-	listDNSReq.Header.Set("Content-Type", "application/json")
-	listDNSReq.Header.Set("Authorization", "Bearer "+DigiOceanAccessToken)
+	ListDnsReq.Header.Set("Content-Type", "application/json")
+	ListDnsReq.Header.Set("Authorization", "Bearer "+DigiOceanAccessToken)
 
-	listDNSResp, err := http.DefaultClient.Do(listDNSReq)
+	ListDnsResp, err := http.DefaultClient.Do(ListDnsReq)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	defer listDNSResp.Body.Close()
+	defer ListDnsResp.Body.Close()
 
-	responseBody, err := ioutil.ReadAll(listDNSResp.Body)
-	listDNSResponse := make(map[string]interface{})
-	listDNSResponse["status"] = listDNSResp.StatusCode
-	listDNSResponse["body"] = string(responseBody)
-	resp = listDNSResponse
+	responseBody, err := ioutil.ReadAll(ListDnsResp.Body)
+	ListDnsResponse := make(map[string]interface{})
+	ListDnsResponse["status"] = ListDnsResp.StatusCode
+	ListDnsResponse["body"] = string(responseBody)
+	resp = ListDnsResponse
 
 	return resp, err
 }
 
-// ListResourcednsRecordSets function lists DNS record sets. DigitalOcean API
+// ListResourceDnsRecordSets function lists DNS record sets. DigitalOcean API
 // doesn't provide functionality to suppport this function.
-func (digioceandns *Digioceandns) ListResourcednsRecordSets(request interface{}) (resp interface{}, err error) {
+func (digioceandns *Digioceandns) ListResourceDnsRecordSets(request interface{}) (resp interface{}, err error) {
 
 	return resp, err
 }

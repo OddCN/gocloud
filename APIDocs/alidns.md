@@ -12,27 +12,27 @@ type Alidns struct {
 Alidns represents Alidns attribute and method associates with it.
 
 ```
-func (alidns *Alidns) Createdns(request interface{}) (resp interface{}, err error)
+func (alidns *Alidns) CreateDns(request interface{}) (resp interface{}, err error)
 ```
-Createdns add DNS record accept map[string]interface{}
+CreateDns add DNS record accept map[string]interface{}
 
 ```
-func (alidns *Alidns) Deletedns(request interface{}) (resp interface{}, err error)
+func (alidns *Alidns) DeleteDns(request interface{}) (resp interface{}, err error)
 ```
-Deletedns delete DNS record accept map[string]interface{}
+DeleteDns delete DNS record accept map[string]interface{}
 
 ```
-func (alidns *Alidns) ListResourcednsRecordSets(request interface{}) (resp interface{}, err error)
+func (alidns *Alidns) ListResourceDnsRecordSets(request interface{}) (resp interface{}, err error)
 ```
-ListResourcednsRecordSets list resource DNS record sets accept map[string]interface{}
+ListResourceDnsRecordSets list resource DNS record sets accept map[string]interface{}
 
 ```
-func (alidns *Alidns) Listdns(request interface{}) (resp interface{}, err error)
+func (alidns *Alidns) ListDns(request interface{}) (resp interface{}, err error)
 ```
-Listdns list DNS record accept map[string]interface{}
+ListDns list DNS record accept map[string]interface{}
 
 ```
-type CreateDNS struct {
+type CreateDns struct {
     DomainName string
     RR         string
     Type       string
@@ -42,27 +42,27 @@ type CreateDNS struct {
     Line       string
 }
 ```
-CreateDNS to store all attribute to create Ali-cloud DNS
+CreateDns to store all attribute to create Ali-cloud DNS
 
 ```
-type DeleteDNS struct {
+type DeleteDns struct {
     RecordId string
 }
 ```
-DeleteDNS to store all attribute to delete Ali-cloud DNS
+DeleteDns to store all attribute to delete Ali-cloud DNS
 
 ```
-type ListDNS struct {
+type ListDns struct {
     PageNumber int
     PageSize   int
     KeyWord    string
     GroupId    string
 }
 ```
-ListDNS to store all attribute to list Ali-cloud DNS
+ListDns to store all attribute to list Ali-cloud DNS
 
 ```
-type ListResourceDNSRecordSets struct {
+type ListResourceDnsRecordSets struct {
     DomainName   string
     PageNumber   int
     PageSize     int
@@ -71,4 +71,4 @@ type ListResourceDNSRecordSets struct {
     ValueKeyWord string
 }
 ```
-ListResourceDNSRecordSets to store all attribute to list resource Ali-cloud DNS record sets
+ListResourceDnsRecordSets to store all attribute to list resource Ali-cloud DNS record sets

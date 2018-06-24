@@ -4,8 +4,8 @@ package alidns
 type Alidns struct {
 }
 
-// CreateDNS to store all attribute to create Ali-cloud DNS
-type CreateDNS struct {
+// CreateDns to store all attribute to create Ali-cloud DNS
+type CreateDns struct {
 	DomainName string
 	RR         string
 	Type       string
@@ -15,13 +15,13 @@ type CreateDNS struct {
 	Line       string
 }
 
-// DeleteDNS to store all attribute to delete Ali-cloud DNS
-type DeleteDNS struct {
+// DeleteDns to store all attribute to delete Ali-cloud DNS
+type DeleteDns struct {
 	RecordId string
 }
 
-// ListResourceDNSRecordSets to store all attribute to list resource Ali-cloud DNS record sets
-type ListDNS struct {
+// ListResourceDnsRecordSets to store all attribute to list resource Ali-cloud DNS record sets
+type ListDns struct {
 	DomainName   string
 	PageNumber   int
 	PageSize     int

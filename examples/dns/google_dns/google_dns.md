@@ -30,7 +30,7 @@ googlecloud, _ := gocloud.CloudProvider(gocloud.Googleprovider)
 ### Create DNS
 
 ```js
-createdns := map[string]interface{}{
+CreateDns := map[string]interface{}{
 		"Project":     "sheltermap-1493101612061",
 		"Kind":        "dns#managedZone",
 		"Description": "dns",
@@ -38,7 +38,7 @@ createdns := map[string]interface{}{
 		"Name":        "gocloud",
 	}
 
-  resp, err := googlecloud.Createdns(createdns)
+  resp, err := googlecloud.CreateDns(CreateDns)
 
   response := resp.(map[string]interface{})
   fmt.Println(response["body"])
@@ -48,11 +48,11 @@ createdns := map[string]interface{}{
 ### List DNS
 
 ```js
-  listdns := map[string]string{
+  ListDns := map[string]string{
 		"Project": "sheltermap-1493101612061",
 	}
 
-  resp, err := googlecloud.Listdns(listdns)
+  resp, err := googlecloud.ListDns(ListDns)
 
  response := resp.(map[string]interface{})
  fmt.Println(response["body"])
@@ -62,12 +62,12 @@ createdns := map[string]interface{}{
 
 ```js
 
-  deletedns := map[string]string{
+  DeleteDns := map[string]string{
 		"Project":     "sheltermap-1493101612061",
 		"managedZone": "gocloud3",
 	}
 
- resp, err := googlecloud.Deletedns(deletedns)
+ resp, err := googlecloud.DeleteDns(DeleteDns)
 
  response := resp.(map[string]interface{})
  fmt.Println(response["body"])
@@ -76,12 +76,12 @@ createdns := map[string]interface{}{
 ### Detach node with loadbalancer
 
 ```js
-  listResourcednsRecordSets := map[string]string{
+  ListResourceDnsRecordSets := map[string]string{
 	"Project"     : "sheltermap-1493101612061",
 	"managedZone" : "gocloud3",
   }
 
-  resp, err := googlecloud.ListResourcednsRecordSets(listResourcednsRecordSets)
+  resp, err := googlecloud.ListResourceDnsRecordSets(ListResourceDnsRecordSets)
 
  response := resp.(map[string]interface{})
  fmt.Println(response["body"])

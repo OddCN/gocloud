@@ -4,7 +4,7 @@ import "testing"
 import "fmt"
 
 //create bigtable Createtable
-func TestCreatetables(t *testing.T) {
+func TestCreateTables(t *testing.T) {
 
 	var bigtable Bigtable
 
@@ -12,61 +12,61 @@ func TestCreatetables(t *testing.T) {
 
 	initialSplits := make([]map[string]interface{}, 0)
 
-	createtables := map[string]interface{}{
+	CreateTables := map[string]interface{}{
 		"parent":        "projects/adept-comfort-202709/instances/helloo",
 		"tableId":       "tableId",
 		"table":         table,
 		"initialSplits": initialSplits,
 	}
 
-	_, err := bigtable.Createtables(createtables)
+	_, err := bigtable.CreateTables(CreateTables)
 
 	if err != nil {
 		t.Errorf("Test Fail")
 	}
 }
 
-func TestDescribetables(t *testing.T) {
+func TestDescribeTables(t *testing.T) {
 
 	var bigtable Bigtable
 
-	describetables := map[string]string{
+	DescribeTables := map[string]string{
 		"name": "projects/adept-comfort-202709/instances/helloo/tables/bokkkya",
 	}
 
-	_, err := bigtable.Describetables(describetables)
+	_, err := bigtable.DescribeTables(DescribeTables)
 
 	if err != nil {
 		t.Errorf("Test Fail")
 	}
 }
 
-func TestListtables(t *testing.T) {
+func TestListTables(t *testing.T) {
 
 	var bigtable Bigtable
 
-	listtables := map[string]string{
+	ListTables := map[string]string{
 		"parent":    "projects/adept-comfort-202709/instances/helloo",
 		"view":      "NAME_ONLY",
 		"pageToken": "",
 	}
 
-	_, err := bigtable.Listtables(listtables)
+	_, err := bigtable.ListTables(ListTables)
 
 	if err != nil {
 		t.Errorf("Test Fail")
 	}
 }
 
-func TestDeletetables(t *testing.T) {
+func TestDeleteTables(t *testing.T) {
 
 	var bigtable Bigtable
 
-	deletetables := map[string]string{
+	DeleteTables := map[string]string{
 		"name": "projects/adept-comfort-202709/instances/helloo/tables/bokkkya",
 	}
 
-	_, err := bigtable.Deletetables(deletetables)
+	_, err := bigtable.DeleteTables(DeleteTables)
 
 	if err != nil {
 		t.Errorf("Test Fail")

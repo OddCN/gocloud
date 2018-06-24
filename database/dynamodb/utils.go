@@ -1,6 +1,6 @@
 package dynamodb
 
-func preparedescribetables(params map[string]string, TableName string, Region string) {
+func prepareDescribeTables(params map[string]string, TableName string, Region string) {
 
 	if TableName != "" {
 		params["TableName"] = TableName
@@ -13,7 +13,7 @@ func preparedescribetables(params map[string]string, TableName string, Region st
 	params["amztarget"] = "DynamoDB_20120810.DescribeTable"
 }
 
-func preparedeletetables(params map[string]string, TableName string, Region string) {
+func prepareDeleteTables(params map[string]string, TableName string, Region string) {
 
 	if TableName != "" {
 		params["TableName"] = TableName
@@ -26,7 +26,7 @@ func preparedeletetables(params map[string]string, TableName string, Region stri
 	params["amztarget"] = "DynamoDB_20120810.DeleteTable"
 }
 
-func preparelisttables(params map[string]string, ExclusiveStartTableName string, Limit string, Region string) {
+func prepareListTables(params map[string]string, ExclusiveStartTableName string, Limit string, Region string) {
 	if ExclusiveStartTableName != "" {
 		params["ExclusiveStartTableName"] = ExclusiveStartTableName
 	}
@@ -41,7 +41,7 @@ func preparelisttables(params map[string]string, ExclusiveStartTableName string,
 	params["amztarget"] = "DynamoDB_20120810.ListTables"
 }
 
-func preparecreatetableStreamSpecificationparams(createtablejsonmap map[string]interface{}, createtable Createtable) {
+func prepareCreateTablestreamSpecificationparams(createtablejsonmap map[string]interface{}, createtable Createtable) {
 
 	if (createtable.streamSpecification != StreamSpecification{}) {
 
@@ -59,7 +59,7 @@ func preparecreatetableStreamSpecificationparams(createtablejsonmap map[string]i
 	}
 }
 
-func preparecreatetableSSESpecificationparams(createtablejsonmap map[string]interface{}, createtable Createtable) {
+func prepareCreateTablesSESpecificationparams(createtablejsonmap map[string]interface{}, createtable Createtable) {
 	if (createtable.sSESpecification != SSESpecification{}) {
 		sSESpecificationv := make(map[string]interface{})
 		sSESpecificationv["Enabled"] = createtable.sSESpecification.Enabled
@@ -252,8 +252,8 @@ func preparecreatetablejsonmap(createtablejsonmap map[string]interface{}, create
 		createtablejsonmap["TableName"] = createtable.TableName
 	}
 
-	preparecreatetableStreamSpecificationparams(createtablejsonmap, createtable)
-	preparecreatetableSSESpecificationparams(createtablejsonmap, createtable)
+	prepareCreateTablestreamSpecificationparams(createtablejsonmap, createtable)
+	prepareCreateTablesSESpecificationparams(createtablejsonmap, createtable)
 	preparecreatetableProvisionedThroughputparams(createtablejsonmap, createtable)
 	preparekeySchemaparams(createtablejsonmap, createtable)
 	prepareAttributeDefinitionsparams(createtablejsonmap, createtable)

@@ -25,3 +25,11 @@ type Vultr struct {
 func (*Vultr) Compute() gocloudinterface.Compute {
 	return &vultrcompute.VultrCompute{}
 }
+
+func (*Vultr) Storage() gocloudinterface.Storage {
+	return &vultrstorage.VultrStorage{}
+}
+
+func (*Vultr) DNS() gocloudinterface.DNS {
+	return &vultrdns.VultrDNS{}
+}
